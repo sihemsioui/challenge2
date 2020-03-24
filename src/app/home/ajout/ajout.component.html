@@ -1,0 +1,26 @@
+<h2>About Me</h2>
+
+      <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+        <div>
+            <label>Name</label>
+
+            <label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+            <input  [ngClass]="{'border-success': name.touched== true }" type="text" #name="ngModel" [ngModel]="userModel.name" name="name" id="name" ngModel required>
+          </div>
+        <div>
+            <label>Email</label>
+            <input [ngClass]="{'border-success': email.touched== true }" #email="ngModel" [ngModel]="userModel.email" type="text" name="email" id="email" ngModel required>
+        </div>
+        <div>
+          <label>Login</label>
+          <input [ngStyle]="{'border-color':login.touched ? 'blue' : '' }" #login="ngModel" type="text" [ngModel]="userModel.login" name="login" id="login" ngModel required>
+        </div>
+      <div>
+        <label>password</label>
+        <input [ngStyle]="{'border-color':password.touched  ? 'blue' : '' }" #password="ngModel" [ngModel]="userModel.password" type="password" name="password" id="password" ngModel required>
+    </div>
+        <div  class="form-action-buttons">
+            <input type="submit" value="Submit">
+            <button type="button" (click)="resetUserForm(myform)" class="btn btn-primary button">Reset</button>
+        </div>
+    </form>
