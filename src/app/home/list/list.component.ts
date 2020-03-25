@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
 
 
   ngOnInit(): void {
-   
+    this.items=JSON.parse(localStorage.getItem("users"));
   }
 
   onDelete(index){
